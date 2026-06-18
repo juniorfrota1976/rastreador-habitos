@@ -317,7 +317,7 @@
     </div>
     <p class="auth-sub" id="list-sub">Quem vai usar?</p>
     <div class="user-grid" id="user-grid"></div>
-    <button class="btn-new-user" onclick="showView('register')">+ Criar nova conta</button>
+    <button class="btn-new-user" onclick="showView('reg')">+ Criar nova conta</button>
   </div>
 
   <!-- VIEW: senha -->
@@ -486,12 +486,12 @@ function showView(view) {
   target.classList.add('fade-in');
 
   if (view === 'list') renderUserList();
-  if (view === 'password') {
+  if (view === 'pwd') {
     document.getElementById('pwd-error').textContent = '';
     document.getElementById('pwd-field').value = '';
     setTimeout(()=>document.getElementById('pwd-field').focus(), 100);
   }
-  if (view === 'register') {
+  if (view === 'reg') {
     document.getElementById('reg-error').textContent = '';
     ['reg-name','reg-user','reg-pwd','reg-pwd2'].forEach(id=>document.getElementById(id).value='');
     setTimeout(()=>document.getElementById('reg-name').focus(), 100);
@@ -523,7 +523,7 @@ function selectUser(username) {
   const user = users[username];
   document.getElementById('pwd-avatar').innerHTML = avatarHTML(user.name, username, 'lg');
   document.getElementById('pwd-greeting').textContent = `Olá, ${user.name}! 👋`;
-  showView('password');
+  showView('pwd');
 }
 
 async function doLogin() {
